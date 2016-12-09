@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/swi_start"
         android:checked="false"
-        android:layout_weight="0.94" />
+        android:layout_weight="1.16" />
         <Chronometer
             android:layout_width="224dp"
             android:layout_height="wrap_content"
@@ -34,7 +34,8 @@
         android:layout_width="match_parent"
         android:layout_height="371dp"
         android:id="@+id/landSystem"
-        android:layout_weight="0.88">
+        android:layout_weight="0.88"
+        android:visibility="gone">
         <LinearLayout
             android:id="@+id/layout1"
             android:orientation="horizontal"
