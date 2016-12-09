@@ -13,6 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private double totalAmount=0;
@@ -83,6 +84,10 @@ public class MainActivity extends AppCompatActivity {
                 totalAmount += adult*adultCount;
                 totalAmount += teenager*teenagerCount;
                 totalAmount += child*childCount;
+
+                if(adultCount==0  || teenagerCount==0 || childCount==0){
+                    Toast.makeText(getApplicationContext(), "인원을 입력하세요", Toast.LENGTH_SHORT).show();
+                }
 
                 if(rg1.getCheckedRadioButtonId()==R.id.radioButton) {
                     totalAmount = totalAmount * 0.95;

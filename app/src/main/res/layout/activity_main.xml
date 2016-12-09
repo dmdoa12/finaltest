@@ -33,6 +33,12 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/laytime"></LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="371dp"
         android:id="@+id/landSystem"
         android:layout_weight="0.88"
