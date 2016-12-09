@@ -20,7 +20,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/swi_start"
         android:checked="false"
-        android:layout_weight="1.16" />
+        android:layout_weight="1.88"
+        android:textSize="12sp" />
         <Chronometer
             android:layout_width="224dp"
             android:layout_height="wrap_content"
@@ -134,7 +135,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                app:srcCompat="@android:drawable/dialog_holo_light_frame"
+                android:src="@drawable/land1"
                 android:id="@+id/imageView"
                 android:layout_weight="1" />
         </LinearLayout>

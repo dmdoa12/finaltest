@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.ImageView;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private double totalAmount=0;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup rg1;
     ImageView iv1;
     TextView tv1,tv2,tv3;
+    Button bt1,bt2,bt3,bt4;
 
     Switch swi_start;
     Chronometer crono;
@@ -38,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
         et3 = (EditText)findViewById(R.id.editText3);
         rg1 = (RadioGroup)findViewById(R.id.radioGroup);
         iv1 = (ImageView)findViewById(R.id.imageView);
+        bt1 = (Button)findViewById(R.id.complete);
+        tv1 = (TextView)findViewById(R.id.textView3);
+        tv2 = (TextView)findViewById(R.id.textView4);
+        tv3 = (TextView)findViewById(R.id.textView5);
+
         swi_start.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -63,6 +70,38 @@ public class MainActivity extends AppCompatActivity {
                 else{
                     iv1.setImageResource(R.drawable.land3);
                 }
+            }
+        });
+
+        bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int adultCount = Integer.parseInt(et1.getText().toString());
+                int teenagerCount = Integer.parseInt(et2.getText().toString());
+                int childCount = Integer.parseInt(et3.getText().toString());
+                double saleAmount=0;
+                totalAmount += adult*adultCount;
+                totalAmount += teenager*teenagerCount;
+                totalAmount += child*childCount;
+
+                if(rg1.getCheckedRadioButtonId()==R.id.radioButton) {
+                    totalAmount = totalAmount * 0.95;
+                    saleAmount = totalAmount * 0.05;
+                }
+                else if(rg1.getCheckedRadioButtonId()==R.id.radioButton2){
+                    totalAmount = totalAmount*0.9;
+                    saleAmount = totalAmount * 0.1;
+                }
+                else if(rg1.getCheckedRadioButtonId()==R.id.radioButton3){
+                    totalAmount = totalAmount*0.8;
+                    saleAmount = totalAmount * 0.2;
+                }
+                tv1.setText("총 명수 : "+(adultCount+teenagerCount+childCount));
+                String Amount= String.format("%.1f", totalAmount);
+                String Amount2 = String.format("%.1f", saleAmount);
+                tv2.setText("할인금액: "+saleAmount);
+                tv3.setText("결제금액 : "+Amount);
+                totalAmount = 0;
             }
         });
     }
